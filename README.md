@@ -1,6 +1,9 @@
 # start
 PHP start project containing useful boilerplate code and login/register feature
 
+### Requirements
+- PHP >= 5.4
+
 ### todo
 - better error handling
 - better separation of view files and processing scripts
