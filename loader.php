@@ -1,4 +1,6 @@
 <?php	
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 /**
  * Script that is defining paths and also includes config and autoloader.
@@ -14,7 +16,7 @@
  */
  
 // Application name, you have to set this to your project name/root
-define('APP_NAME', 'app');
+define('APP_NAME', 'start');
  
 // DIRECTORY_SEPARATOR is a PHP pre-defined constant ( \ for windows, / for Unix )
 defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR); 
@@ -25,13 +27,17 @@ defined('SITE_ROOT') ? null : define('SITE_ROOT', DS.'var'.DS.'www'.DS.'html'.DS
 // Path to "includes" folder
 defined('INCLUDES') ? null : define('INCLUDES', SITE_ROOT.'includes'.DS);
 
+// Path to "lib" folder
+defined('LIB') ? null : define('LIB', SITE_ROOT.'lib'.DS);
+
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * Include config and SplClassLoader
+ * Include config, SplClassLoader, and password library
  */
 require_once INCLUDES.'config.php';
 require_once INCLUDES.'SplClassLoader.php';
+require_once LIB.'password.php';
  
 //----------------------------------------------------------------------------------------------------------------------
 

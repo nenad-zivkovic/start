@@ -5,7 +5,7 @@ use \PDO;
 use \PDOException;
 
 /**
- * DB class file.
+ * DBManager class file.
  *
  * @author Nenad Zivkovic <nenad@freetuts.org>
  * @copyright 2015 https://github.com/nenad-zivkovic
@@ -19,7 +19,7 @@ use \PDOException;
  *
  * @requirements: PHP 5.3 or greater
  */
-abstract class DB
+abstract class DBManager
 {
     /**
      * Database handle.

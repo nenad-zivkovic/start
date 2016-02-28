@@ -4,7 +4,7 @@ namespace app\components\session;
 /**
  * Session wrapping class.
  */
-class Session
+class SessionManager
 {
     /**
      * Starts the session.
@@ -12,7 +12,7 @@ class Session
     public function open()
     {
         if ($this->getIsActive()) {
-            return $this;
+            return;
         }
         session_start();
     }
