@@ -56,13 +56,6 @@ abstract class DBManager
      */
     protected $_error;
 
-    /**
-     * Table row data
-     * 
-     * @var array
-     */
-    protected $_data = array();
-    
     // connection config
     protected $_dbDsn = null;
     protected $_dbUser = null;
@@ -85,28 +78,6 @@ abstract class DBManager
         } catch (PDOException $e) { 
             $this->_error = $e->getMessage();      
         }
-    }
-    
-    public function __get($name) 
-    {
-        return isset($this->_data[$name]) ? $this->_data[$name] : null;
-    }
-    
-    public function __set($name, $value) 
-    {
-        $this->_data[$name] = $value;
-        return $this;
-    }
-    
-    public function __isset($name) 
-    {
-    	return isset($this->_data[$name]);
-    }
-    
-    public function __unset($name) 
-    {
-        unset($this->_data[$name]);
-        return $this;
     }
 
 //-----------------------------------------------------------------------

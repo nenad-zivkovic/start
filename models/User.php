@@ -29,7 +29,23 @@ class User extends DBManager
      */
     public function findByUsername($username)
     {
-        return $this->query("SELECT * FROM {$this->_table} WHERE username = ?")->bind($username)->one();
+        return $this->query("SELECT id, username, password 
+                             FROM {$this->_table} 
+                             WHERE username = ?")
+                    ->bind($username)
+                    ->one();
+    }
+
+    /**
+     * Find all users and sort them by id DESC ( newest at the top ).
+     * We are sorting by id instead of created_at so we do not need to put index on created_at field.
+     * We save some memory, and effect is the same ;)
+     * 
+     * @return User|null
+     */
+    public function findAll()
+    {
+        return $this->query("SELECT id, username, email FROM {$this->_table} ORDER BY id DESC")->all();
     }
 
     /**

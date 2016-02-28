@@ -16,7 +16,7 @@
 
                 <div id="navbar" class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="backend/home.php">Home</a></li>
+                        <li><a href="backend/home.php">Home</a></li>
                         <li><a href="backend/users.php">Users</a></li>
                         <li><a href="backend/logout.php">Logout</a></li>
                     </ul>
