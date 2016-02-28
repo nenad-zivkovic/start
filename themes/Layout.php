@@ -4,11 +4,12 @@ namespace app\themes;
 use app\components\auth\iAuthManager as iAuthManager;
 
 /**
- * Class that is responsible for including reusable parts of site.
+ * Class that is responsible for including reusable parts of the site.
  */
 class Layout
 {
     private static $_theme = 'default';
+    
     protected $_authManager;
 
     public function __construct(iAuthManager $authManager)

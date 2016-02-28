@@ -32,7 +32,7 @@ class LoginForm
 
         if (!$user || !$user->validatePassword($user->password, $this->_password)) {
             $session = new SessionManager();
-            $session->set('form-error', 'Invalid username or password.');
+            $session->set('form-errors', 'Invalid username or password.');
             return false;
         }
 

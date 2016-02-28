@@ -18,10 +18,10 @@
     //-- handle errors --//
     $session = new SessionManager();
 
-    if ($session->has('form-error')) {
-        $error = $session->get('form-error');
+    if ($session->has('form-errors')) {
+        $error = $session->get('form-errors');
     }
-    $session->remove('form-error');  
+    $session->remove('form-errors');  
 ?>
 
         <!-- Top content -->
@@ -70,7 +70,7 @@
                                     <div class="form-group">
                                         <button type="submit" class="btn">Sign in!</button>
                                         <span class="pull-right">
-                                            If you do not have account you can <a href="#">Register</a>
+                                            If you do not have account you can <a href="register.php">Register</a>
                                         </span>
                                     </div>
 			                    </form>

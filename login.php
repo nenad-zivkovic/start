@@ -9,15 +9,16 @@ $session = new SessionManager();
 
 /**
  * @todo Maybe some other validations and wrapper for error management.
+ * @todo Error validations in model ? hmm ?
  */
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    $session->set('form-error', 'Please submit the form.');
+    $session->set('form-errors', 'Please submit the form.');
     UtilsHelper::goHome();
 }
 
 if (empty($_POST['form-username']) || empty($_POST['form-password'])) {
-    $session->set('form-error', 'Username and Password fields are required.');
+    $session->set('form-errors', 'Username and Password fields are required.');
     UtilsHelper::goHome();
 }
 
@@ -30,5 +31,5 @@ if ($user = $model->login()) {
     UtilsHelper::goToMembersHome();
 }
 
-// login was not successful, redirect the user to login page (home in our case)
+// login was not successful, redirect the user to home page (login in our case)
 UtilsHelper::goHome();

@@ -47,4 +47,25 @@ class User extends DBManager
 
         return true;
     }
+
+    /**
+     * Method that is responsible for saving user ( uppon registration ).
+     * 
+     * @param  string $username 
+     * @param  string $email    
+     * @param  string $password 
+     * @return integer          The user id.
+     */
+    public function saveUser($username, $email, $password)
+    {
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+
+        return $this->query("INSERT INTO {$this->_table} 
+                             SET username = ?, 
+                                 password = ?,
+                                 email = ?,
+                                 created_at = NOW()")
+                    ->bind($username, $hash, $email)
+                    ->run();
+    }
 }
