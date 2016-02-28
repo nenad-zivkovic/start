@@ -1,7 +1,7 @@
 # start
 PHP start project containing useful boilerplate code and login/register feature
 
-### Requirements
+### requirements
 - PHP >= 5.4
 
 ### todo
