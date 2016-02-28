@@ -18,7 +18,10 @@ class AuthManager implements iAuthManager
      */
     public function userIsMember()
     {
-        if (!empty((new SessionManager)->get('userId'))) {
+        $session = new SessionManager();
+        $userId = $session->get('userId');
+        
+        if (!empty($userId)) {
             return true;
         }
 

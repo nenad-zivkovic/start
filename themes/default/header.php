@@ -1,4 +1,10 @@
-<?php require_once __DIR__.'/../../loader.php' ?>
+<?php 
+    require_once __DIR__.'/../../loader.php';
+    use app\components\session\SessionManager as SessionManager;
+    $session = new SessionManager();
+    $session->open();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
