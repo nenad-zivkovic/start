@@ -1,0 +1,10 @@
+RewriteEngine on
+
+# hide files and folders
+RedirectMatch 404 /components
+RedirectMatch 404 /helpers
+RedirectMatch 404 /includes
+RedirectMatch 404 /lib
+RedirectMatch 404 /models
+RedirectMatch 404 /sql
+RedirectMatch 404 /loader
