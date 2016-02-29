@@ -2,7 +2,6 @@
 namespace app\components\auth;
 
 use app\components\session\SessionManager as SessionManager;
-use app\helpers\UtilsHelper as UtilsHelper;
 
 /**
  * Application authentication manager. 
@@ -34,7 +33,7 @@ class AuthManager implements iAuthManager
     public function protectPage()
     {
         if (!$this->userIsMember()) {
-            UtilsHelper::goHome();
+            UrlManager::goHome();
         }
     }
 }

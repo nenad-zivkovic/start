@@ -4,7 +4,7 @@
     use app\themes\Layout as Layout;
     use app\components\auth\AuthManager as AuthManager;
     use app\components\session\SessionManager as SessionManager;
-    use app\helpers\UtilsHelper as UtilsHelper;
+    use app\components\web\UrlManager as UrlManager;
 
     $auth = new AuthManager();
     $layout = new Layout($auth);
@@ -12,7 +12,7 @@
 
     // dont allow members to see this page
     if ($auth->userIsMember()) {
-        UtilsHelper::goToMembersHome();
+        UrlManager::goToMembersHome();
     }
 
     //-- handle errors --//

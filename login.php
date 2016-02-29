@@ -2,7 +2,7 @@
 require_once 'loader.php';
 
 use app\components\session\SessionManager as SessionManager;
-use app\helpers\UtilsHelper as UtilsHelper;
+use app\components\web\UrlManager as UrlManager;
 use app\models\LoginForm as LoginForm;
 
 $session = new SessionManager();
@@ -14,12 +14,12 @@ $session = new SessionManager();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $session->set('form-errors', 'Please submit the form.');
-    UtilsHelper::goHome();
+    UrlManager::goHome();
 }
 
 if (empty($_POST['form-username']) || empty($_POST['form-password'])) {
     $session->set('form-errors', 'Username and Password fields are required.');
-    UtilsHelper::goHome();
+    UrlManager::goHome();
 }
 
 $model = new LoginForm($_POST['form-username'], $_POST['form-password']);
@@ -28,8 +28,8 @@ $model = new LoginForm($_POST['form-username'], $_POST['form-password']);
 if ($user = $model->login()) {
     $session->set('userId', $user->id);
     $session->set('username', $user->username);
-    UtilsHelper::goToMembersHome();
+    UrlManager::goToMembersHome();
 }
 
 // login was not successful, redirect the user to home page (login in our case)
-UtilsHelper::goHome();
+UrlManager::goHome();

@@ -57,6 +57,7 @@ class SessionManager
     public function getCount()
     {
         $this->open();
+        
         return count($_SESSION);
     }
     /**
@@ -79,6 +80,7 @@ class SessionManager
     public function get($key)
     {
         $this->open();
+
         return isset($_SESSION[$key]) ? $_SESSION[$key] : null;
     }
 
@@ -92,6 +94,7 @@ class SessionManager
     public function set($key, $value)
     {
         $this->open();
+
         $_SESSION[$key] = $value;
     }
 
@@ -104,13 +107,14 @@ class SessionManager
     public function remove($key)
     {
         $this->open();
-        if (isset($_SESSION[$key])) {
-            $value = $_SESSION[$key];
-            unset($_SESSION[$key]);
-            return $value;
-        } else {
+
+        if (!isset($_SESSION[$key])) {
             return null;
         }
+
+        $value = $_SESSION[$key];
+        unset($_SESSION[$key]);
+        return $value;
     }
 
     /**
@@ -119,6 +123,7 @@ class SessionManager
     public function removeAll()
     {
         $this->open();
+
         foreach (array_keys($_SESSION) as $key) {
             unset($_SESSION[$key]);
         }
@@ -131,6 +136,7 @@ class SessionManager
     public function has($key)
     {
         $this->open();
+
         return isset($_SESSION[$key]);
     }  
 

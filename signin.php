@@ -2,7 +2,7 @@
 require_once 'loader.php';
 
 use app\components\session\SessionManager as SessionManager;
-use app\helpers\UtilsHelper as UtilsHelper;
+use app\components\web\UrlManager as UrlManager;
 use app\models\RegistrationForm as RegistrationForm;
 
 $session = new SessionManager();
@@ -42,7 +42,7 @@ if (!preg_match("/^[a-zA-Z0-9]*$/", $_POST['form-password'])) {
 // return user back to registration form to fix errors
 if (!empty($errors)) {
     $session->set('form-errors', $errors);
-    UtilsHelper::goToRegistrationForm();
+    UrlManager::goToRegistrationForm();
 }
 
 $model = new RegistrationForm($_POST['form-username'], $_POST['form-email'], $_POST['form-password']);
@@ -51,8 +51,8 @@ $model = new RegistrationForm($_POST['form-username'], $_POST['form-email'], $_P
 if ($userId = $model->register()) {
     $session->set('userId', $userId);
     $session->set('username', $_POST['form-username']);
-    UtilsHelper::goToMembersHome();
+    UrlManager::goToMembersHome();
 }
 
 // login was not successful, redirect the user to login page (home in our case)
-UtilsHelper::goHome();
+UrlManager::goHome();
