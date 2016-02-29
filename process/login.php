@@ -1,5 +1,5 @@
 <?php
-require_once 'loader.php';
+require_once __DIR__.'/../loader.php';
 
 use app\components\session\SessionManager as SessionManager;
 use app\components\web\UrlManager as UrlManager;

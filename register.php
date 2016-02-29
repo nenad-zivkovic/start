@@ -5,6 +5,7 @@
     use app\components\auth\AuthManager as AuthManager;
     use app\components\session\SessionManager as SessionManager;
     use app\components\web\UrlManager as UrlManager;
+    use app\components\web\Html as Html;
 
     $auth = new AuthManager();
     $layout = new Layout($auth);
@@ -60,7 +61,8 @@
                                 </div>
                             </div>
                             <div class="form-bottom">
-                                <form role="form" action="signin.php" method="post" class="register-form">
+                                <form role="form" action=<?= Html::process('register.php') ?> 
+                                      method="post" class="register-form">
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Username</label>
                                         <input type="text" name="form-username" placeholder="Create your username" 

@@ -3,7 +3,6 @@
     use app\components\session\SessionManager as SessionManager;
     $session = new SessionManager();
     $session->open();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

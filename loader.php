@@ -30,6 +30,9 @@ defined('INCLUDES') ? null : define('INCLUDES', SITE_ROOT.'includes'.DS);
 // Path to "lib" folder
 defined('LIB') ? null : define('LIB', SITE_ROOT.'lib'.DS);
 
+// Path to "process" folder
+defined('PROCESS') ? null : define('PROCESS', SITE_ROOT.'process'.DS);
+
 //----------------------------------------------------------------------------------------------------------------------
 
 /**

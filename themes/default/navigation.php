@@ -1,4 +1,7 @@
-<?php require_once __DIR__.'/../../loader.php' ?>
+<?php 
+    require_once __DIR__.'/../../loader.php'; 
+    use app\components\web\Html as Html;
+?>
 
         <!-- Static navbar -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -18,7 +21,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="backend/home.php">Home</a></li>
                         <li><a href="backend/users.php">Users</a></li>
-                        <li><a href="backend/logout.php">Logout</a></li>
+                        <li><a href=<?= Html::processBackend('logout.php') ?>>Logout</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
