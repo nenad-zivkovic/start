@@ -50,12 +50,12 @@ class User extends DBManager
 
     /**
      * Use password library to validate user submitted password against the one stored in database.
-     * 
-     * @param  string  $passwordFromDb    the user password stored in database
+     *
      * @param  string  $submittedPassword the user submitted password throught the form
+     * @param  string  $passwordFromDb    the user password stored in database
      * @return boolean                    whether or not passwords match
      */
-    public function validatePassword($passwordFromDb, $submittedPassword)
+    public function validatePassword($submittedPassword, $passwordFromDb)
     {
         if (!password_verify($submittedPassword, $passwordFromDb)) {
             return false;
@@ -74,14 +74,14 @@ class User extends DBManager
      */
     public function saveUser($username, $email, $password)
     {
-        $hash = password_hash($password, PASSWORD_DEFAULT);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         return $this->query("INSERT INTO {$this->_table} 
                              SET username = ?, 
                                  password = ?,
                                  email = ?,
                                  created_at = NOW()")
-                    ->bind($username, $hash, $email)
+                    ->bind($username, $hashedPassword, $email)
                     ->run();
     }
 }
