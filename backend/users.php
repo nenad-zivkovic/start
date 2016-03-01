@@ -10,7 +10,7 @@
     $auth->protectPage();
 
     $layout = new Layout($auth);
-    $layout->header(); 
+    $layout->header(['title' => 'Users']); 
 
     $users = (new User())->findAll();
 ?>

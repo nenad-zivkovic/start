@@ -17,8 +17,17 @@ class Layout
         $this->_authManager = $authManager;
     }
 
-    public function header()
+    /**
+     * Outputs the page header. It can accept the array of parameters that you can use for setting 
+     * dynamic values in tags inside header like: page titles, meta tags etc.
+     * 
+     * @param  array  $params array of values that should be injected inside html tags
+     */
+    public function header($params = [])
     {
+        $pageTitle = (isset($params['title'])) ? $params['title'] : APP_NAME ;
+        $pageDescription = (isset($params['description'])) ? $params['description'] : 'php template login register' ;
+
         require_once self::$_theme .DS. 'header.php';
 
         if ($this->_authManager->userIsMember()) {
@@ -26,6 +35,9 @@ class Layout
         }
     }
 
+    /**
+     * Outputs the page footer.
+     */
     public function footer()
     {
         require_once self::$_theme .DS. 'footer.php';

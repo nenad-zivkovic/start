@@ -9,7 +9,7 @@
 
     $auth = new AuthManager();
     $layout = new Layout($auth);
-    $layout->header();
+    $layout->header(['title' => 'Register']);
 
     // dont allow members to see this page
     if ($auth->userIsMember()) {
