@@ -2,6 +2,7 @@
 namespace app\components\auth;
 
 use app\components\session\SessionManager as SessionManager;
+use app\components\web\UrlManager as UrlManager;
 
 /**
  * Application authentication manager. 
